@@ -9,7 +9,7 @@ side2 = float(input('Input second side of the hole: '))  # variable input; side2
 data_is_correct = 1 # initializing of boolean variable that describes the correctness of input data
 
 if (edge1 < 0) or (edge2 < 0) or (edge3 < 0) or (side1 < 0) or (side2 < 0): # checking of input data
-    print('Error: inputted data aren\'t correct') # error message output
+    print('Error: input data aren\'t correct') # error message output
     data_is_correct = 0 # input data aren't correct
 
 if data_is_correct: # the main part of the program will be executed in case of successful input data verification

@@ -1,24 +1,24 @@
 #variant 2
 
-edge1 = float(input('Input first edge of the brick: '))
-edge2 = float(input('Input second edge of the brick: '))
-edge3 = float(input('Input third edge of the brick: '))
-side1 = float(input('Input first side of the hole: '))
-side2 = float(input('Input second side of the hole: '))
+edge1 = float(input('Input first edge of the brick: '))  # variable input; edge1 -- first edge of the brick
+edge2 = float(input('Input second edge of the brick: ')) # variable input; edge2 -- second edge of the brick
+edge3 = float(input('Input third edge of the brick: '))  # variable input; edge3 -- third edge of the brick
+side1 = float(input('Input first side of the hole: '))   # variable input; side1 -- first side of the hole
+side2 = float(input('Input second side of the hole: '))  # variable input; side2 -- second side of the hole
 
-data_is_correct = 1
+data_is_correct = 1 # initializing of boolean variable that describes the correctness of input data
 
-if (edge1 < 0) or (edge2 < 0) or (edge3 < 0) or (side1 < 0) or (side2 < 0):
-    print('Error: inputted data aren\'t correct')
-    data_is_correct = 0
+if (edge1 < 0) or (edge2 < 0) or (edge3 < 0) or (side1 < 0) or (side2 < 0): # checking of input data
+    print('Error: inputted data aren\'t correct') # error message output
+    data_is_correct = 0 # input data aren't correct
 
-if data_is_correct:
+if data_is_correct: # the main part of the program will be executed in case of successful input data verification
     if ((side1 >= edge1) and (side2 >= edge2)) or ((side1 >= edge1) and (side2 >= edge3)) \
     or ((side1 >= edge2) and (side2 >= edge3)) or ((side1 >= edge2) and (side2 >= edge1)) \
-    or ((side1 >= edge3) and (side2 >= edge1)) or ((side1 >= edge3) and (side2 >= edge2)):
-        print('The brick can be pushed through the hole')
+    or ((side1 >= edge3) and (side2 >= edge1)) or ((side1 >= edge3) and (side2 >= edge2)): # checking the possibility of pushing the brick through the hole
+        print('The brick can be pushed through the hole') # output of the result message
     else:
-        print('The brick can\'t be pushed through the hole')
+        print('The brick can\'t be pushed through the hole') # output of the result message
     
     
 

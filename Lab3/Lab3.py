@@ -17,7 +17,7 @@ else:
 if inputDataIsCorrect:
     CALCULATION_ACCURACY = 0.000001 # accuracy of calculation
     currentElem = varA - 1 # current element of the series
-    LnA = 0 # natural log of a
+    lnA = 0 # natural log of a
     i = 0 # counter
     nextIteration = True # boolean variable for the do-while loop emulating   
 
@@ -26,7 +26,7 @@ if inputDataIsCorrect:
     # finding the natural logarithm value
     while nextIteration:
         print('{1} [{0}]'.format(i, currentElem), end = '; ') # element of the series output
-        LnA += currentElem
+        lnA += currentElem
         i += 1
         currentElem *= ((-1) * (varA - 1) * i) / (i + 1)
         if abs(currentElem) <= CALCULATION_ACCURACY: # Exit condition
@@ -34,10 +34,10 @@ if inputDataIsCorrect:
 
     # percent error calculation
     if varA != 1:
-        percentError = abs(LnA - math.log1p(varA - 1)) / math.log1p(varA - 1) * 100;
+        percentError = abs(lnA - math.log1p(varA - 1)) / math.log1p(varA - 1) * 100;
     else:
         percentError = 0
 
-    print('\n\nLn(a): {0}\nPercent error: {1} %\n'.format(LnA, percentError)) # result message output
+    print('\n\nLn(a): {0}\nPercent error: {1} %\n'.format(lnA, percentError)) # result message output
 else:
     print('Error: input data aren\'t correct!') # error message output

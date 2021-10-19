@@ -9,12 +9,12 @@ varA = float(input('Input variable \"a\" in the range (0;2]: ')) #initializing a
 # checking the correctness of input data
 # inputDataIsCorrect -- boolean variable that describes the correctness of input data
 if varA >= 0 and varA <= 2: 
-    inputDataIsCorrect = True 
+    inputDataAreCorrect = True 
 else:
-    inputDataIsCorrect = False
+    inputDataAreCorrect = False
 
 
-if inputDataIsCorrect:
+if inputDataAreCorrect:
     CALCULATION_ACCURACY = 0.000001 # accuracy of calculation
     currentElem = varA - 1 # current element of the series
     lnA = 0 # natural log of a

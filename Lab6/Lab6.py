@@ -2,13 +2,6 @@
 
 from math import sqrt
 
-# Returns True if the number is positive and False if not
-def is_positive(num):
-    if num > 0:
-        return True
-    else:
-        return False
-
 # Returns the largest argument passed to the function
 def max_num(*args):
     max = args[0]
@@ -19,18 +12,13 @@ def max_num(*args):
 
 # Returns True if the arguments passed to the function can be the sides of a triangle and False if not
 def are_triangle_sides(side1, side2, side3):
-    
-    if is_positive(side1) and is_positive(side2) and is_positive(side3):
-        sides_are_positive = True
-    else:
-        sides_are_positive = False
-
-    if sides_are_positive and (side1 + side2 > side3) and (side1 + side3 > side2) and (side2 + side3 > side1):
+    if (side1 + side2 > side3) and (side1 + side3 > side2) and (side2 + side3 > side1):
         return True
     else:
         return False
 
-# Returns the area of the triangle calculated by the formula of Heron
+# Returns the area of the triangle calculated by the formula of Heron if the sides values
+# passed to the function are correct and 0 if not
 def herons_formula(side1, side2, side3):
     sides_values_are_correct = are_triangle_sides(side1, side2, side3)
     if sides_values_are_correct:
@@ -48,6 +36,10 @@ def result_message_output(max_area, *args):
         if max_area == temp:
             print('The area of triangle № {0} ({1} sq. units) is the largest one.'.format(index, temp))
         index += 1
+
+# Print the error message
+def error_message_output():
+    print('Error: input numbers aren\'t the sides of triangles!')
 
 print('Please, input the sides of first triangle: ')
 side11 = float(input('Side 1: '))
@@ -72,4 +64,4 @@ if are_triangle_sides(side11, side12, side13) and are_triangle_sides(side21, sid
 
     result_message_output(max_area, area1, area2, area3)
 else:
-    print('Error: input numbers aren\'t the sides of triangles!')
+    error_message_output()

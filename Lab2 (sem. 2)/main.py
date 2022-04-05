@@ -22,11 +22,11 @@ print('\nLong term storage products list:')
 print_products_list(long_term_storage_products_list)
 
 delete_expired_products(short_term_storage_products_list)
-
+write_to_bin(short_file, short_term_storage_products_list)
 print('\nShort term storage products list after deleting expired products:')
 print_products_list(short_term_storage_products_list)
 
 delete_expired_products(long_term_storage_products_list)
-
+write_to_bin(long_file, long_term_storage_products_list)
 print('\nLong term storage products list after deleting expired products:')
 print_products_list(long_term_storage_products_list)

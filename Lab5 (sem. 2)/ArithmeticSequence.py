@@ -3,21 +3,25 @@ from TSeries import *
 class ArithmeticSequence(TSeries):
     def __init__(self, first_term: float = None, common_difference: float = None):
         if first_term:
-            self.__first_term = first_term
+            super().__init__(first_term)
         else:
-            self.__first_term = 0
+            super().__init__(0)
 
         if common_difference:
             self.__common_difference = common_difference
         else:
             self.__common_difference = 0
 
-    def calculate_nth_term(self, n: int) -> float:
+    def get_nth_term(self, n: int) -> float:
+        if n <= 0:
+            raise ValueError("n must be positive int")
         nth_term = self.__first_term + self.__common_difference * (n - 1)
         return nth_term
 
-    def calculate_sum_of_n_terms(self, n: int) -> float:
-        sum_of_n_terms = (self.__first_term + self.calculate_nth_term(n)) * n / 2
+    def get_sum_of_n_terms(self, n: int) -> float:
+        if n <= 0:
+            raise ValueError("n must be positive int")
+        sum_of_n_terms = (self.__first_term + self.get_nth_term(n)) * n / 2
         return sum_of_n_terms
 
     @property

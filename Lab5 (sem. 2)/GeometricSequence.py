@@ -3,9 +3,9 @@ from TSeries import *
 class GeometricSequence(TSeries):
     def __init__(self, first_term: float = None, common_ratio: float = None):
         if first_term:
-            self.__first_term = first_term
+            super().__init__(first_term)
         else:
-            self.__first_term = 0
+            super().__init__(0)
 
         if common_ratio:
             if common_ratio != 0.0:
@@ -15,11 +15,15 @@ class GeometricSequence(TSeries):
         else:
             self.__common_ratio = 0
 
-    def calculate_nth_term(self, n: int) -> float:
+    def get_nth_term(self, n: int) -> float:
+        if n <= 0:
+            raise ValueError("n must be positive int")
         nth_term = self.__first_term * self.__common_ratio ** (n - 1)
         return nth_term
 
-    def calculate_sum_of_n_terms(self, n: int) -> float:
+    def get_sum_of_n_terms(self, n: int) -> float:
+        if n <= 0:
+            raise ValueError("n must be positive int")
         if self.__common_ratio != 1:
             sum_of_n_terms = self.__first_term * (self.__common_ratio ** n - 1) / (self.__common_ratio - 1)
         else:
